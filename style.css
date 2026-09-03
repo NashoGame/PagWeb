@@ -1,0 +1,70 @@
+/* Estilos generales para todo el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Tipo de letra limpio y legible */
+    margin: 0;                     /* Eliminamos los márgenes por defecto del navegador */
+    padding: 0;                    /* Eliminamos el relleno por defecto */
+    background-color: #f4f4f4;     /* Un gris muy suave para el fondo general */
+    color: #333333;                /* Color de texto principal en gris oscuro */
+}
+
+/* Estilos del encabezado principal (<header>) */
+header {
+    background-color: #1a1a1a;     /* Fondo oscuro estilo retro/cine */
+    color: #ffffff;                /* Texto blanco para que resalte */
+    padding: 20px;                 /* Espaciado interno alrededor del contenido */
+    text-align: center;            /* Centramos el título y el menú */
+}
+
+/* Estilos para los enlaces de navegación dentro del <nav> */
+nav a {
+    color: #ffcc00;                /* Un color amarillo llamativo tipo VHS antiguo */
+    text-decoration: none;         /* Quitamos la línea subrayada de los enlaces */
+    margin: 0 10px;                /* Espacio a la izquierda y derecha de cada enlace */
+    font-weight: bold;             /* Letra en negrita */
+}
+
+nav a:hover {
+    text-decoration: underline;    /* Al pasar el mouse por encima, se subraya */
+}
+
+/* Estilos para el contenido principal (<main>) */
+main {
+    padding: 20px;                 /* Espaciado interno para que el contenido no pegue a los bordes */
+    max-width: 800px;              /* Ancho máximo para que no se estire demasiado en pantallas grandes */
+    margin: 0 auto;                /* Centramos el bloque principal en la pantalla */
+}
+
+/* Estilos para las tarjetas de productos (<article>) */
+article {
+    background-color: #ffffff;     /* Fondo blanco para las tarjetas */
+    border: 1px solid #ddd;        /* Un borde sutil gris */
+    padding: 15px;                 /* Espacio interno dentro de la tarjeta */
+    margin-bottom: 15px;           /* Separación entre cada artículo */
+    border-radius: 5px;            /* Bordes ligeramente redondeados */
+}
+
+/* Estilos para los botones de compra */
+button {
+    background-color: #ffcc00;     /* Fondo amarillo */
+    color: #1a1a1a;                /* Texto oscuro */
+    border: none;                  /* Sin bordes predeterminados */
+    padding: 10px 15px;            /* Tamaño del botón */
+    cursor: pointer;               /* Cambia el cursor a una manito al pasar por encima */
+    font-weight: bold;             /* Texto en negrita */
+    border-radius: 3px;            /* Bordes redondeados sutiles */
+}
+
+button:hover {
+    background-color: #e6b800;     /* Un tono amarillo un poco más oscuro al pasar el mouse */
+}
+
+/* Estilos para el pie de página (<footer>) */
+footer {
+    text-align: center;            /* Texto centrado */
+    padding: 15px;                 /* Espaciado interno */
+    background-color: #1a1a1a;     /* Fondo oscuro igual al header */
+    color: #ffffff;                /* Texto blanco */
+    position: relative;            
+    bottom: 0;
+    width: 100%;
+}
