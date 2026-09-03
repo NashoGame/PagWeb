@@ -1,14 +1,17 @@
 // BASE DE DATOS LOCAL: Un arreglo (Array) que contiene objetos ({}). 
 // Cada objeto guarda las propiedades que construyen la vista de la película.
+// BASE DE DATOS LOCAL
 const peliculas = [
-    { titulo: "Volver al Futuro", sinopsis: "Marty McFly, un estudiante de 17 años, es enviado accidentalmente treinta años al pasado en un artefacto inventado por su amigo.", precio: "$5.000", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" },
-    { titulo: "Matrix", sinopsis: "Un hacker se da cuenta por medio de otros rebeldes de la naturaleza de su realidad y su rol en la guerra contra los controladores.", precio: "$4.500", fondo: "img-fondo-2.jpg", caratula: "vhs-2.jpg" }, // *Cambiar rutas cuando haya fotos nuevas
-    { titulo: "Jurassic Park", sinopsis: "Gracias al ADN fosilizado en ámbar, John Hammond da vida a varias especies de dinosaurios y crea Jurassic Park, un parque temático en una isla de Costa Rica. Pero lo que parecía un sueño se convierte rápidamente en pesadilla.", precio: "$6.000", fondo: "img/img-fondo-3.jpg", caratula: "img/vhs-3.jpg" }
-    { titulo: "Pesadilla en la calle Elm", sinopsis: "Varias personas son perseguidas por un cruel asesino en serie que mata a sus víctimas durante sus sueños. Mientras los supervivientes tratan de encontrar el motivo, el asesino no desperdiciará ninguna ocasión para matarlos.", precio: "$5.500", fondo: "img-fondo-4.jpg", caratula: "vhs-4.jpg"}
+    { titulo: "Volver al Futuro", sinopsis: "Un joven viaja accidentalmente al pasado...", precio: "$5.000", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" },
+    { titulo: "Matrix", sinopsis: "Un hacker descubre la verdadera naturaleza de su realidad.", precio: "$4.500", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" }, 
+    { titulo: "Jurassic Park", sinopsis: "Dinosaurios clonados escapan de su parque temático.", precio: "$6.000", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" },
+    { titulo: "Pesadilla en la calle Elm", sinopsis: "Un asesino desfigurado acecha a un grupo de adolescentes en sus sueños.", precio: "$5.500", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" }
 ];
 
-// VARIABLE DE CONTROL: Almacena en qué posición de la lista de películas estamos (0 = primera).
+// VARIABLE DE CONTROL
 let indiceActual = 0;
+
+// ... (El resto del código hacia abajo se mantiene exactamente igual) ...
 
 // REFERENCIAS HTML: Guardamos en variables las etiquetas HTML buscando por su atributo "id".
 const bannerSection = document.getElementById("hero-banner"); // El recuadro grande izquierdo
