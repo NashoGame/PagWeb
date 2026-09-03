@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Retro Rewind - Iniciar Sesión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Agregamos una clase especial al body para aplicar el fondo oscuro solo aquí -->
+<body class="ig-body">
+    
+    <!-- Contenedor principal que dividirá la pantalla en dos mitades (Flexbox) -->
+    <main class="ig-contenedor">
+        
+        <!-- MITAD IZQUIERDA: Textos e imágenes promocionales -->
+        <section class="ig-izquierda">
+            <!-- NUEVO: Contenedor para mostrar tu logo y el nombre grande -->
+            <div class="ig-logo-contenedor">
+                <img src="./img/logo.png" alt="Logo Retro Rewind" class="ig-logo-img">
+                <h1 class="ig-logo">Retro Rewind</h1>
+            </div>
+            <!-- Texto publicitario similar al de Instagram -->
+            <h2 class="ig-eslogan">Mira los mejores clásicos del cine con tus <span>mejores amigos</span>.</h2>
+            
+            <!-- Aquí puedes poner una imagen de collage retro después (ej. src="img/collage.png") -->
+            <!-- NUEVO: Etiqueta <img> que llama a tu imagen real del collage.
+                 Nota: Si tu archivo es .jpg, cambia "collage.png" por "collage.jpg" -->
+            <img src="./img/collage.jpg" alt="Collage Retro Rewind" class="ig-imagen-collage">
+        </section>
+
+        <!-- MITAD DERECHA: El formulario de inicio de sesión -->
+        <section class="ig-derecha">
+            <!-- Caja contenedora del formulario para darle ancho y centrarlo -->
+            <div class="ig-caja-form">
+                
+                <!-- Encabezado del formulario con flecha para volver al inicio -->
+                <div class="ig-form-header">
+                    <a href="index.html" class="ig-volver">❮</a>
+                    <h3>Iniciar sesión en Retro Rewind</h3>
+                </div>
+                
+                <!-- Formulario semántico -->
+                <form id="form-login" class="ig-formulario">
+                    <!-- Campo de texto (Usuario o Correo) -->
+                    <input type="text" id="usuario" placeholder="Número de móvil, nombre de usuario o correo" required class="ig-input">
+                    <!-- Campo de contraseña -->
+                    <input type="password" id="password" placeholder="Contraseña" required class="ig-input">
+                    
+                    <!-- Botón principal azul -->
+                    <button type="submit" class="ig-btn-azul">Iniciar sesión</button>
+                    
+                    <!-- Enlace de recuperación de contraseña -->
+                    <a href="#" class="ig-olvidaste">¿Has olvidado la contraseña?</a>
+                    
+                    <!-- Línea separadora visual (opcional, para mantener el estilo) -->
+                    <div class="ig-separador"></div>
+                    
+                    <!-- Botón secundario oscuro con borde para registrarse -->
+                    <button type="button" class="ig-btn-oscuro" onclick="window.location.href='registro.html'">Crear una cuenta</button>
+                </form>
+                
+                <!-- Pie del formulario imitando el logo de Meta -->
+                <div class="ig-meta-logo">RetroRewind</div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

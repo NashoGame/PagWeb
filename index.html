@@ -6,15 +6,20 @@
     <!-- Codificación que permite usar tildes y caracteres especiales (ñ) -->
     <meta charset="UTF-8">
     <!-- Título que aparece en la pestaña superior del navegador -->
-    <title>TiendaVHS - Inicio</title>
+    <title>Retro Rewind - Inicio</title>
     <!-- Vincula este HTML con el archivo de estilos externos para aplicar diseño -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER: Encabezado principal. Clase "ps-header" para darle diseño en CSS -->
     <header class="ps-header">
-        <!-- Contenedor genérico para el logotipo del sitio -->
-        <div class="logo">📼 TiendaVHS</div>
+        <!-- NUEVO: Contenedor que agrupa la imagen de tu logo y el texto -->
+        <div class="logo-contenedor">
+            <!-- IMG: Llama a tu logo desde la carpeta img. Si tu logo es .jpg, cambia la extensión aquí -->
+            <img src="./img/logo.png" alt="Logo Retro Rewind" class="logo-img">
+            <!-- SPAN: El nuevo nombre de tu tienda -->
+            <span class="logo-texto">Retro Rewind</span>
+        </div>
         
         <!-- NAV: Etiqueta semántica para los botones de navegación entre páginas -->
         <nav class="ps-nav">

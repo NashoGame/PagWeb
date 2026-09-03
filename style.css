@@ -99,27 +99,292 @@ body { margin: 0; font-family: Arial, sans-serif; background: #e6e6e6; }
 }
 
 .lista-peliculas {
-    display: flex; /* Activa flexbox para la lista de películas */
-    flex-direction: column; /* Apila las películas de arriba hacia abajo */
-    height: 100%; /* CRÍTICO: Hace que la lista interna también ocupe el 100% de la altura */
-    gap: 15px; /* Espacio de separación entre cada película */
+    display: flex; /* Activa flexbox para alinear los botones */
+    flex-direction: column; /* Apila los botones de arriba hacia abajo */
+    height: 100%; /* Obliga a la lista a usar toda la altura */
+    gap: 15px; /* Espacio de separación entre cada botón */
 }
 
 .mini-peli { 
-    background: white; /* Fondo blanco */
-    border-radius: 10px; /* Bordes redondos */
-    opacity: 0.5; /* Transparencia para las películas no seleccionadas */
-    transition: opacity 0.3s; /* Animación de medio segundo al cambiar */
-    flex: 1; /* CRÍTICO: Hace que cada caja crezca automáticamente para rellenar todo el espacio vertical vacío */
-    display: flex; /* Activa flexbox dentro de cada caja pequeña */
-    align-items: center; /* Centra el texto verticalmente dentro de la caja */
-    justify-content: center; /* Centra el texto horizontalmente dentro de la caja */
-    font-size: 1.1rem; /* Tamaño de letra un poco más grande */
+    flex: 1; /* Hace que cada botón crezca para rellenar el espacio vacío verticalmente */
+    border-radius: 10px; /* Bordes redondeados */
+    opacity: 0.5; /* Opacidad al 50% cuando no están seleccionados */
+    transition: opacity 0.3s; /* Efecto suave de encendido/apagado */
+    display: flex; /* Activa flexbox interno para centrar el texto */
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+    font-size: 1.1rem; /* Tamaño de letra */
+    
+    /* NUEVO: Configuración para que funcione como botón con imagen */
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el botón */
+    background-position: center; /* Centra la imagen de fondo del botón */
+    position: relative; /* CRÍTICO: Necesario para poder ponerle una capa oscura encima */
+    color: white; /* Texto blanco para resaltar */
+    text-shadow: 2px 2px 5px black; /* Sombra negra detrás del texto para que se lea siempre */
+    cursor: pointer; /* Cambia el mouse a una "manito" indicando que es clickeable */
+    overflow: hidden; /* Evita que la capa oscura se salga de los bordes redondos */
 }
 
-/* Esta clase se agrega vía JavaScript sólo al ítem actual */
+/* NUEVO: Capa oscura semitransparente para los botones (igual que en el banner grande) */
+.mini-peli::before {
+    content: ""; /* Obligatorio para crear este elemento visual */
+    position: absolute; /* Lo desconecta y lo hace flotar sobre el fondo del botón */
+    top: 0; left: 0; width: 100%; height: 100%; /* Cubre todo el botón */
+    background: rgba(0,0,0,0.5); /* Color negro al 50% de transparencia */
+    z-index: 1; /* Lo pone en la capa 1 (encima del fondo) */
+}
+
+/* NUEVO: Protege el texto para que quede por encima de la capa oscura */
+.mini-peli b {
+    position: relative; 
+    z-index: 2; /* Lo pone en la capa 2 (encima de lo oscuro) */
+    text-align: center; /* Centra el texto en caso de que sea muy largo */
+    padding: 0 10px; /* Margen interno a los lados para que el texto no toque el borde */
+}
+
+/* Botón seleccionado actualmente */
 .mini-peli.activa { 
-    opacity: 1; /* Quita la transparencia de la película actual */
-    border: 2px solid #0070d1; /* Borde azul tipo PlayStation */
-    box-shadow: 0 0 10px rgba(0,112,209,0.3); /* Resplandor azul externo */
+    opacity: 1; /* Lo vuelve 100% visible */
+    border: 2px solid #0070d1; /* Borde azul de PlayStation */
+    box-shadow: 0 0 15px rgba(0,112,209,0.5); /* Resplandor azul */
+}
+
+/* =========================================
+   DISEÑO TIPO INSTAGRAM PARA EL LOGIN
+========================================= */
+
+/* Fondo oscuro general solo para esta página */
+.ig-body {
+    background-color: #000000; /* Fondo negro absoluto */
+    color: #ffffff; /* Texto blanco por defecto */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 1. Limitamos la pantalla al 100% y ocultamos el scroll */
+.ig-contenedor {
+    display: flex; 
+    height: 100vh; /* CRÍTICO: Fija el alto exactamente al 100% de la ventana */
+    overflow: hidden; /* Oculta cualquier cosa que intente salirse, eliminando la barra de scroll */
+}
+
+/* 2. Reducimos el padding (espacio interno) */
+.ig-izquierda {
+    flex: 1; 
+    background-color: #0a0a0a; 
+    border-right: 1px solid #262626; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px; /* Reducido de 40px a 20px */
+    text-align: center;
+}
+
+/* 3. Achicamos un poco los logos y el texto */
+.ig-logo-img {
+    height: 50px; /* Reducido de 80px */
+    width: auto; 
+    margin-bottom: 5px;
+}
+
+.ig-logo {
+    font-size: 2rem; /* Reducido de 2.8rem */
+    margin: 0; 
+    color: #ffffff; 
+}
+
+.ig-eslogan {
+    font-size: 1.3rem; /* Reducido de 1.8rem */
+    font-weight: normal; 
+    max-width: 400px; 
+    margin-top: 10px;
+    margin-bottom: 15px; /* Menos espacio hacia abajo */
+}
+
+/* Le da color al texto "mejores amigos" imitando el gradiente de Instagram */
+.ig-eslogan span {
+    color: #e1306c; /* Rosa Instagram */
+}
+
+/* 4. Hacemos que la imagen se adapte al alto de la pantalla */
+.ig-imagen-collage {
+    width: 100%; 
+    max-width: 300px; 
+    max-height: 40vh; /* CRÍTICO: La imagen nunca superará el 40% del alto de tu pantalla */
+    object-fit: contain; /* Evita que la imagen se deforme al achicarse */
+    border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8); 
+    border: 1px solid #333; 
+    transition: transform 0.3s ease; 
+}
+
+/* 5. Reducimos el espacio vacío arriba del logo "Meta" en el lado derecho */
+.ig-meta-logo {
+    text-align: center;
+    color: #888;
+    margin-top: 25px; /* Reducido de 50px */
+    font-size: 0.9rem;
+}
+
+/* EFECTO HOVER: Hace que la imagen se mueva al pasar el mouse encima */
+.ig-imagen-collage:hover {
+    transform: translateY(-10px); /* Levanta la imagen 10 píxeles hacia arriba suavemente */
+}
+
+/* Lado Derecho (Formulario) */
+.ig-derecha {
+    flex: 1; /* Ocupa la otra mitad del espacio */
+    background-color: #000000; /* Fondo negro puro */
+    display: flex;
+    align-items: center; /* Centra el formulario verticalmente */
+    justify-content: center; /* Centra el formulario horizontalmente */
+}
+
+/* Contenedor del formulario */
+.ig-caja-form {
+    width: 100%;
+    max-width: 350px; /* Ancho similar al de un celular */
+}
+
+/* Encabezado del formulario (< Volver) */
+.ig-form-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.ig-volver {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+.ig-form-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+/* Diseño del formulario interno */
+.ig-formulario {
+    display: flex;
+    flex-direction: column; /* Apila inputs y botones hacia abajo */
+}
+
+/* Estilo de las cajas de texto */
+.ig-input {
+    background-color: #121212; /* Fondo gris muy oscuro */
+    border: 1px solid #363636; /* Borde gris medio */
+    color: white; /* Texto escrito en blanco */
+    padding: 14px 10px; /* Espacio interno */
+    margin-bottom: 15px; /* Separación hacia abajo */
+    border-radius: 5px; /* Bordes ligeramente curvos */
+    font-size: 0.9rem;
+}
+.ig-input:focus {
+    outline: none;
+    border-color: #555; /* El borde se aclara al hacer clic */
+}
+
+/* Botón azul principal */
+.ig-btn-azul {
+    background-color: #005c98; /* Azul oscuro */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px; /* Bordes redondeados tipo píldora */
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+.ig-btn-azul:hover {
+    background-color: #0070d1; /* Se ilumina al pasar el mouse */
+}
+
+/* Enlace "olvidaste contraseña" */
+.ig-olvidaste {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Separador invisible visual */
+.ig-separador {
+    height: 1px;
+    background-color: #262626;
+    margin: 10px 0 25px 0;
+}
+
+/* Botón de registro transparente con borde */
+.ig-btn-oscuro {
+    background-color: transparent;
+    color: #0070d1; /* Letras azules */
+    border: 1px solid #262626; /* Borde gris oscuro */
+    padding: 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: border 0.3s;
+}
+.ig-btn-oscuro:hover {
+    border-color: #555; /* El borde se aclara al pasar el mouse */
+}
+
+/* Logo inferior */
+.ig-meta-logo {
+    text-align: center;
+    color: #888;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   DISEÑO PARA LOS LOGOS (Retro Rewind)
+========================================= */
+
+/* HEADER PRINCIPAL (index.html) */
+/* Alinea la imagen del logo y el texto uno al lado del otro */
+.logo-contenedor {
+    display: flex; /* Activa flexbox internamente */
+    align-items: center; /* Centra la imagen y el texto a la misma altura */
+    gap: 10px; /* Crea una separación de 10px entre la imagen y el texto */
+}
+
+/* Tamaño de la imagen del logo en la barra de navegación */
+.logo-img {
+    height: 40px; /* Fija la altura a 40px para que no deforme la barra blanca */
+    width: auto; /* Mantiene la proporción original de la imagen */
+}
+
+/* Diseño del nombre en la barra de navegación */
+.logo-texto {
+    font-size: 1.5rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: #1a1a1a; /* Color oscuro */
+}
+
+/* PANTALLA DE LOGIN (login.html) */
+/* Alinea el logo y el título grande en la pantalla negra */
+.ig-logo-contenedor {
+    display: flex;
+    flex-direction: column; /* Pone el logo arriba y el texto abajo */
+    align-items: center; /* Los centra horizontalmente */
+    margin-bottom: 20px; /* Separación con el texto publicitario */
+}
+
+/* Tamaño de la imagen del logo en la pantalla de inicio de sesión */
+.ig-logo-img {
+    height: 80px; /* Lo hacemos más grande porque es la pantalla de presentación */
+    width: auto; 
+    margin-bottom: 10px; /* Separación con el nombre "Retro Rewind" */
+}
+
+/* Diseño del título gigante en la pantalla negra */
+.ig-logo {
+    font-size: 2.8rem; /* Letra muy grande */
+    margin: 0; /* Quita los márgenes por defecto del <h1> */
+    color: #ffffff; /* Texto blanco puro */
 }
