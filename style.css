@@ -29,10 +29,10 @@ body { margin: 0; font-family: Arial, sans-serif; background: #e6e6e6; }
 
 /* --- ESTRUCTURA PRINCIPAL DIVIDIDA --- */
 .ps-hero {
-    display: flex; /* Coloca el banner (izq) y el catálogo (der) lado a lado */
-    height: 80vh; /* Altura del 80% de la ventana de tu pantalla */
+    display: flex; height: 80vh; /* Altura del 80% de la ventana de tu pantalla *//* Coloca el banner (izq) y el catálogo (der) lado a lado */
     padding: 0 30px 30px 30px; /* 0px arriba para quedar pegado al header, 30px en los otros lados */
     gap: 30px; /* Margen de separación entre el lado izquierdo y el derecho */
+    align-items: stretch; /* Fuerza a que el banner y el catálogo tengan la misma altura */
 }
 
 /* --- BANNER IZQUIERDO (Fondo de película) --- */
@@ -95,15 +95,23 @@ body { margin: 0; font-family: Arial, sans-serif; background: #e6e6e6; }
 /* --- CATÁLOGO DERECHO --- */
 .hero-catalogo { 
     width: 300px; /* Fija el tamaño del menú para que no se expanda */
-    display: flex; flex-direction: column; /* Apila las cajas en modo columna (hacia abajo) */
+    display: flex; /* Apila las cajas en modo columna (hacia abajo) */
+    flex-direction: column; /* Apila las cajas en modo columna (hacia abajo) */
     gap: 15px; /* Espacio vertical entre tarjetas */
-    padding-top: 30px; /* Baja un poco la lista para alinear visualmente */
 }
+
 .mini-peli { 
-    background: white; padding: 15px; border-radius: 10px; 
+    background: white; 
+    border-radius: 10px; 
     opacity: 0.5; /* Estado inactivo: se ven medio transparentes/apagadas */
     transition: opacity 0.3s; /* Tiempo que tarda en iluminarse */
+    flex: 1; /* Hace que todas las cajas se estiren para rellenar el espacio vacío */
+    display: flex; 
+    align-items: center; /* Centra el texto verticalmente */
+    justify-content: center; /* Centra el texto horizontalmente */
+    font-size: 1.1rem;
 }
+
 /* Esta clase se agrega vía JavaScript sólo al ítem actual */
 .mini-peli.activa { 
     opacity: 1; /* Estado activo: visibilidad completa */
