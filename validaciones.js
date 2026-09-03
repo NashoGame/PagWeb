@@ -2,7 +2,7 @@
 // Cada objeto guarda las propiedades que construyen la vista de la película.
 // BASE DE DATOS LOCAL
 const peliculas = [
-    { titulo: "Volver al Futuro", sinopsis: "Un joven viaja accidentalmente al pasado...", precio: "$5.000", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" },
+    { titulo: "Volver al Futuro", sinopsis: "Un joven viaja accidentalmente al pasado...", precio: "$5.000", fondo: "./img-fondo-1.jpg", caratula: "./vhs-1.jpg" },
     { titulo: "Matrix", sinopsis: "Un hacker descubre la verdadera naturaleza de su realidad.", precio: "$4.500", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" }, 
     { titulo: "Jurassic Park", sinopsis: "Dinosaurios clonados escapan de su parque temático.", precio: "$6.000", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" },
     { titulo: "Pesadilla en la calle Elm", sinopsis: "Un asesino desfigurado acecha a un grupo de adolescentes en sus sueños.", precio: "$5.500", fondo: "img-fondo-1.jpg", caratula: "vhs-1.jpg" }

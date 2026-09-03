@@ -94,27 +94,32 @@ body { margin: 0; font-family: Arial, sans-serif; background: #e6e6e6; }
 
 /* --- CATÁLOGO DERECHO --- */
 .hero-catalogo { 
-    width: 300px; /* Fija el tamaño del menú para que no se expanda */
-    display: flex; /* Apila las cajas en modo columna (hacia abajo) */
-    flex-direction: column; /* Apila las cajas en modo columna (hacia abajo) */
-    gap: 15px; /* Espacio vertical entre tarjetas */
+    width: 300px; /* Mantiene el ancho fijo del catálogo */
+    height: 100%; /* Obliga al contenedor a usar toda la altura de la pantalla disponible */
+}
+
+.lista-peliculas {
+    display: flex; /* Activa flexbox para la lista de películas */
+    flex-direction: column; /* Apila las películas de arriba hacia abajo */
+    height: 100%; /* CRÍTICO: Hace que la lista interna también ocupe el 100% de la altura */
+    gap: 15px; /* Espacio de separación entre cada película */
 }
 
 .mini-peli { 
-    background: white; 
-    border-radius: 10px; 
-    opacity: 0.5; /* Estado inactivo: se ven medio transparentes/apagadas */
-    transition: opacity 0.3s; /* Tiempo que tarda en iluminarse */
-    flex: 1; /* Hace que todas las cajas se estiren para rellenar el espacio vacío */
-    display: flex; 
-    align-items: center; /* Centra el texto verticalmente */
-    justify-content: center; /* Centra el texto horizontalmente */
-    font-size: 1.1rem;
+    background: white; /* Fondo blanco */
+    border-radius: 10px; /* Bordes redondos */
+    opacity: 0.5; /* Transparencia para las películas no seleccionadas */
+    transition: opacity 0.3s; /* Animación de medio segundo al cambiar */
+    flex: 1; /* CRÍTICO: Hace que cada caja crezca automáticamente para rellenar todo el espacio vertical vacío */
+    display: flex; /* Activa flexbox dentro de cada caja pequeña */
+    align-items: center; /* Centra el texto verticalmente dentro de la caja */
+    justify-content: center; /* Centra el texto horizontalmente dentro de la caja */
+    font-size: 1.1rem; /* Tamaño de letra un poco más grande */
 }
 
 /* Esta clase se agrega vía JavaScript sólo al ítem actual */
 .mini-peli.activa { 
-    opacity: 1; /* Estado activo: visibilidad completa */
-    border: 2px solid #0070d1; /* Enciende el borde azul */
-    box-shadow: 0 0 10px rgba(0,112,209,0.3); /* Resplandor exterior azul */
+    opacity: 1; /* Quita la transparencia de la película actual */
+    border: 2px solid #0070d1; /* Borde azul tipo PlayStation */
+    box-shadow: 0 0 10px rgba(0,112,209,0.3); /* Resplandor azul externo */
 }
