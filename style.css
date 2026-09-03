@@ -1,70 +1,78 @@
-/* Estilos generales para todo el cuerpo de la página */
-body {
-    font-family: Arial, sans-serif; /* Tipo de letra limpio y legible */
-    margin: 0;                     /* Eliminamos los márgenes por defecto del navegador */
-    padding: 0;                    /* Eliminamos el relleno por defecto */
-    background-color: #f4f4f4;     /* Un gris muy suave para el fondo general */
-    color: #333333;                /* Color de texto principal en gris oscuro */
+/* Selecciona toda la página visible */
+body { 
+    margin: 0; /* Quita los márgenes blancos que los navegadores traen por defecto */
+    font-family: Arial, sans-serif; /* Define el tipo de letra */
+    background: #e6e6e6; /* Un gris claro para el fondo principal */
 }
 
-/* Estilos del encabezado principal (<header>) */
-header {
-    background-color: #1a1a1a;     /* Fondo oscuro estilo retro/cine */
-    color: #ffffff;                /* Texto blanco para que resalte */
-    padding: 20px;                 /* Espaciado interno alrededor del contenido */
-    text-align: center;            /* Centramos el título y el menú */
+/* --- DISEÑO DEL ENCABEZADO --- */
+.ps-header {
+    display: flex; /* Activa "Flexbox": una herramienta que pone los elementos uno al lado del otro en fila */
+    justify-content: space-between; /* Separa los elementos al máximo (logo a la izq, nav al centro, botones a la der) */
+    align-items: center; /* Centra los elementos verticalmente para que no queden chuecos */
+    background: #ffffff; /* Fondo blanco */
+    padding: 15px 30px; /* 15px de espacio arriba/abajo y 30px a los lados por dentro de la caja */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Crea una sombra suave debajo del encabezado */
+}
+.ps-nav a { 
+    margin: 0 15px; /* Separa los enlaces entre sí */
+    text-decoration: none; /* Quita la línea de subrayado típica de los enlaces */
+    color: #333; /* Texto gris oscuro */
+    font-weight: bold; /* Texto en negrita */
+}
+.btn-login {
+    background: #0070d1; /* Azul PlayStation */
+    color: white; /* Letra blanca */
+    padding: 8px 20px; /* Engorda el botón dándole espacio interno */
+    border-radius: 20px; /* Redondea las esquinas del botón */
+    text-decoration: none; 
+    font-weight: bold; 
 }
 
-/* Estilos para los enlaces de navegación dentro del <nav> */
-nav a {
-    color: #ffcc00;                /* Un color amarillo llamativo tipo VHS antiguo */
-    text-decoration: none;         /* Quitamos la línea subrayada de los enlaces */
-    margin: 0 10px;                /* Espacio a la izquierda y derecha de cada enlace */
-    font-weight: bold;             /* Letra en negrita */
+/* --- DISEÑO DE LA SECCIÓN PRINCIPAL --- */
+.ps-hero {
+    display: flex; /* Pone la sección de info (izq) y el catálogo (der) uno al lado del otro */
+    height: 80vh; /* La altura ocupa el 80% de la pantalla visible del monitor (Viewport Height) */
+    padding: 50px; 
+    align-items: center; /* Centra el contenido verticalmente */
+    gap: 40px; /* Crea un hueco de 40px entre la sección izquierda y la derecha */
+}
+.hero-info {
+    flex: 1; /* Le dice a esta caja que crezca y ocupe todo el espacio sobrante que la lista derecha no usa */
+    transition: opacity 0.5s ease; /* Cuando la opacidad cambie, tardará medio segundo de forma suave (efecto difuminado) */
+}
+.hero-info h2 { 
+    font-size: 3rem; /* Hace el título de la película muy grande */
+    margin-bottom: 10px; 
+}
+.btn-reservar {
+    background: #d13600; /* Naranja rojizo */
+    color: white; 
+    padding: 10px 20px;
+    border: none; /* Quita el borde feo que traen los botones por defecto */
+    border-radius: 20px; /* Bordes redondos */
+    font-weight: bold; 
+    cursor: pointer; /* Cambia el mouse a una manito cuando pasas por encima */
 }
 
-nav a:hover {
-    text-decoration: underline;    /* Al pasar el mouse por encima, se subraya */
+/* --- DISEÑO DE LA LISTA DERECHA --- */
+.hero-catalogo { 
+    width: 300px; /* Fija el ancho de la lista derecha para que no se expanda */
+    display: flex; 
+    flex-direction: column; /* Apila las películas una debajo de otra en lugar de ponerlas en fila */
+    gap: 15px; /* Separación entre cada tarjeta de película */
+}
+.mini-peli {
+    background: white; 
+    padding: 15px; 
+    border-radius: 10px;
+    opacity: 0.5; /* Por defecto, las películas se ven medio transparentes (apagadas) */
+    transition: opacity 0.3s; /* Efecto suave al prenderse o apagarse */
 }
 
-/* Estilos para el contenido principal (<main>) */
-main {
-    padding: 20px;                 /* Espaciado interno para que el contenido no pegue a los bordes */
-    max-width: 800px;              /* Ancho máximo para que no se estire demasiado en pantallas grandes */
-    margin: 0 auto;                /* Centramos el bloque principal en la pantalla */
-}
-
-/* Estilos para las tarjetas de productos (<article>) */
-article {
-    background-color: #ffffff;     /* Fondo blanco para las tarjetas */
-    border: 1px solid #ddd;        /* Un borde sutil gris */
-    padding: 15px;                 /* Espacio interno dentro de la tarjeta */
-    margin-bottom: 15px;           /* Separación entre cada artículo */
-    border-radius: 5px;            /* Bordes ligeramente redondeados */
-}
-
-/* Estilos para los botones de compra */
-button {
-    background-color: #ffcc00;     /* Fondo amarillo */
-    color: #1a1a1a;                /* Texto oscuro */
-    border: none;                  /* Sin bordes predeterminados */
-    padding: 10px 15px;            /* Tamaño del botón */
-    cursor: pointer;               /* Cambia el cursor a una manito al pasar por encima */
-    font-weight: bold;             /* Texto en negrita */
-    border-radius: 3px;            /* Bordes redondeados sutiles */
-}
-
-button:hover {
-    background-color: #e6b800;     /* Un tono amarillo un poco más oscuro al pasar el mouse */
-}
-
-/* Estilos para el pie de página (<footer>) */
-footer {
-    text-align: center;            /* Texto centrado */
-    padding: 15px;                 /* Espaciado interno */
-    background-color: #1a1a1a;     /* Fondo oscuro igual al header */
-    color: #ffffff;                /* Texto blanco */
-    position: relative;            
-    bottom: 0;
-    width: 100%;
+/* Esta clase se añade con JavaScript solo a la película que está sonando/seleccionada en el momento */
+.mini-peli.activa { 
+    opacity: 1; /* Le quita la transparencia, mostrándola 100% visible */
+    border: 2px solid #0070d1; /* Le pone un borde azul */
+    box-shadow: 0 0 10px rgba(0,112,209,0.3); /* Le pone un brillo azul de fondo */
 }

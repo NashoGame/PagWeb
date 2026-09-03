@@ -1,48 +1,60 @@
+<!-- Declara que este documento es HTML5 moderno -->
 <!DOCTYPE html>
+<!-- Indica que el idioma principal de la página es español -->
 <html lang="es">
 <head>
+    <!-- Permite que el navegador lea caracteres especiales como la 'ñ' o tildes -->
     <meta charset="UTF-8">
+    <!-- El texto que aparecerá en la pestaña del navegador -->
     <title>TiendaVHS - Inicio</title>
-    <!-- Enlazamos nuestra hoja de estilos externa -->
+    <!-- Conecta este archivo HTML con tu hoja de estilos CSS externa -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- header: Define el encabezado principal de la página -->
-    <header>
-        <h1>TiendaVHS Retro</h1>
-        <!-- nav: Contiene los hipervínculos de navegación del sitio -->
-        <nav>
-            <a href="index.html">Tienda</a> |
-            <a href="login.html">Iniciar Sesión</a> |
-            <a href="registro.html">Registro</a> |
-            <a href="carrito.html">Carrito</a>
+    <!-- <header>: Etiqueta semántica para el encabezado de la página. 
+         class="ps-header": Le da un nombre para poder darle diseño desde el CSS -->
+    <header class="ps-header">
+        <!-- <div>: Es una caja genérica para agrupar elementos. Aquí guarda el logo -->
+        <div class="logo">📼 TiendaVHS</div>
+        
+        <!-- <nav>: Etiqueta semántica que agrupa los enlaces de navegación -->
+        <nav class="ps-nav">
+            <!-- <a>: Enlaces a tus otras páginas -->
+            <a href="index.html">Tienda ˅</a>
+            <a href="registro.html">Registro ˅</a>
+            <a href="carrito.html">Carrito ˅</a>
         </nav>
+        
+        <!-- Otra caja genérica para agrupar los botones de la derecha -->
+        <div class="ps-actions">
+            <!-- <span>: Etiqueta para agrupar texto en línea, aquí usamos un emoji de lupa -->
+            <span class="search">🔍</span>
+            <a href="login.html" class="btn-login">Iniciar sesión</a>
+        </div>
     </header>
 
-    <!-- main: Envuelve todo el contenido principal y único de esta página -->
-    <main>
-        <!-- section: Agrupa un bloque temático, en este caso, el catálogo -->
-        <section>
-            <h2>Catálogo de Películas</h2>
-            
-            <!-- article: Representa un elemento independiente, ideal para presentar cada producto en vez de usar tablas -->
-            <article>
-                <h3>Volver al Futuro (VHS)</h3>
-                <p>Precio: $5.000</p>
-                <button>Añadir al carrito</button>
-            </article>
-
-            <article>
-                <h3>Matrix (VHS)</h3>
-                <p>Precio: $4.500</p>
-                <button>Añadir al carrito</button>
-            </article>
+    <!-- <main>: Etiqueta semántica que envuelve el contenido principal y único del sitio -->
+    <main class="ps-hero">
+        <!-- <section>: Agrupa una sección temática (la mitad izquierda de la pantalla)
+             id="hero-info": Un identificador ÚNICO que usaremos en JavaScript para modificar esta caja -->
+        <section class="hero-info" id="hero-info">
+            <!-- <h2> y <p> vacíos: Tienen IDs únicos porque JavaScript escribirá texto dentro de ellos -->
+            <h2 id="pelicula-titulo">Cargando...</h2>
+            <p id="pelicula-sinopsis"></p>
+            <p class="precio" id="pelicula-precio"></p>
+            <!-- <button>: Un botón interactivo -->
+            <button class="btn-reservar">Reservar ahora</button>
         </section>
+        
+        <!-- <aside>: Etiqueta semántica para contenido lateral o secundario (la lista de la derecha) -->
+        <aside class="hero-catalogo">
+            <!-- Esta caja está vacía porque JavaScript inyectará las películas aquí automáticamente -->
+            <div class="lista-peliculas" id="lista-peliculas"></div>
+        </aside>
     </main>
 
-    <!-- footer: Define el pie de página con información de cierre -->
-    <footer>
-        <p>&copy; 2026 TiendaVHS.</p>
-    </footer>
+    <!-- <script>: Conecta y ejecuta tu archivo JavaScript. Se pone al final del <body> 
+         para asegurar que el HTML cargue primero antes de que el código intente modificarlo -->
+    <script src="validaciones.js"></script>
 </body>
 </html>
