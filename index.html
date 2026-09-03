@@ -1,60 +1,71 @@
-<!-- Declara que este documento es HTML5 moderno -->
+<!-- Declaración del tipo de documento, obligatorio en HTML5 -->
 <!DOCTYPE html>
-<!-- Indica que el idioma principal de la página es español -->
+<!-- Idioma del sitio web para accesibilidad y SEO -->
 <html lang="es">
 <head>
-    <!-- Permite que el navegador lea caracteres especiales como la 'ñ' o tildes -->
+    <!-- Codificación que permite usar tildes y caracteres especiales (ñ) -->
     <meta charset="UTF-8">
-    <!-- El texto que aparecerá en la pestaña del navegador -->
+    <!-- Título que aparece en la pestaña superior del navegador -->
     <title>TiendaVHS - Inicio</title>
-    <!-- Conecta este archivo HTML con tu hoja de estilos CSS externa -->
+    <!-- Vincula este HTML con el archivo de estilos externos para aplicar diseño -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <header>: Etiqueta semántica para el encabezado de la página. 
-         class="ps-header": Le da un nombre para poder darle diseño desde el CSS -->
+    <!-- HEADER: Encabezado principal. Clase "ps-header" para darle diseño en CSS -->
     <header class="ps-header">
-        <!-- <div>: Es una caja genérica para agrupar elementos. Aquí guarda el logo -->
+        <!-- Contenedor genérico para el logotipo del sitio -->
         <div class="logo">📼 TiendaVHS</div>
         
-        <!-- <nav>: Etiqueta semántica que agrupa los enlaces de navegación -->
+        <!-- NAV: Etiqueta semántica para los botones de navegación entre páginas -->
         <nav class="ps-nav">
-            <!-- <a>: Enlaces a tus otras páginas -->
             <a href="index.html">Tienda ˅</a>
             <a href="registro.html">Registro ˅</a>
             <a href="carrito.html">Carrito ˅</a>
         </nav>
         
-        <!-- Otra caja genérica para agrupar los botones de la derecha -->
+        <!-- Contenedor para acciones del usuario (lupa y botón de cuenta) -->
         <div class="ps-actions">
-            <!-- <span>: Etiqueta para agrupar texto en línea, aquí usamos un emoji de lupa -->
+            <!-- SPAN: Etiqueta en línea (no rompe el párrafo) usada aquí para el ícono -->
             <span class="search">🔍</span>
+            <!-- Enlace que visualmente lo transformaremos en un botón azul -->
             <a href="login.html" class="btn-login">Iniciar sesión</a>
         </div>
     </header>
 
-    <!-- <main>: Etiqueta semántica que envuelve el contenido principal y único del sitio -->
+    <!-- MAIN: Etiqueta semántica que alberga el contenido único principal de la página -->
     <main class="ps-hero">
-        <!-- <section>: Agrupa una sección temática (la mitad izquierda de la pantalla)
-             id="hero-info": Un identificador ÚNICO que usaremos en JavaScript para modificar esta caja -->
-        <section class="hero-info" id="hero-info">
-            <!-- <h2> y <p> vacíos: Tienen IDs únicos porque JavaScript escribirá texto dentro de ellos -->
-            <h2 id="pelicula-titulo">Cargando...</h2>
-            <p id="pelicula-sinopsis"></p>
-            <p class="precio" id="pelicula-precio"></p>
-            <!-- <button>: Un botón interactivo -->
-            <button class="btn-reservar">Reservar ahora</button>
+        
+        <!-- SECTION: Panel izquierdo. Aquí se pondrá el fondo dinámico mediante JS -->
+        <section class="hero-banner" id="hero-banner">
+            
+            <!-- DIV: Agrupa el texto y la imagen para que queden sobre el fondo oscuro -->
+            <div class="banner-content">
+                
+                <!-- DIV: Agrupa exclusivamente los textos para separarlos de la imagen física -->
+                <div class="info-texto">
+                    <!-- H2: Título de la película, recibe un ID para inyectarle texto desde JS -->
+                    <h2 id="pelicula-titulo">Cargando...</h2>
+                    <!-- Párrafo para la sinopsis dinámica -->
+                    <p id="pelicula-sinopsis"></p>
+                    <!-- Párrafo para el precio, usando una clase para destacarlo con color -->
+                    <p class="precio" id="pelicula-precio"></p>
+                    <!-- Botón estándar para la acción de comprar/reservar -->
+                    <button class="btn-reservar">Reservar ahora</button>
+                </div>
+                
+                <!-- IMG: Aquí va la carátula de la caja del VHS. El "src" se llena con JS -->
+                <img id="vhs-portada" src="" alt="Carátula VHS" class="vhs-img">
+            </div>
         </section>
         
-        <!-- <aside>: Etiqueta semántica para contenido lateral o secundario (la lista de la derecha) -->
+        <!-- ASIDE: Etiqueta semántica para contenido lateral (el menú derecho rotativo) -->
         <aside class="hero-catalogo">
-            <!-- Esta caja está vacía porque JavaScript inyectará las películas aquí automáticamente -->
+            <!-- Contenedor que JavaScript usará para generar la lista de películas -->
             <div class="lista-peliculas" id="lista-peliculas"></div>
         </aside>
     </main>
 
-    <!-- <script>: Conecta y ejecuta tu archivo JavaScript. Se pone al final del <body> 
-         para asegurar que el HTML cargue primero antes de que el código intente modificarlo -->
+    <!-- SCRIPT: Llama al archivo de lógica. Se pone al final para que cargue después del HTML -->
     <script src="validaciones.js"></script>
 </body>
 </html>
